@@ -1,0 +1,11 @@
+section(
+layout="row"
+flex)
+  
+  md-sidenav.md-sidenav-left(
+  md-component-id="menu"
+  md-is-locked-open="$mdMedia('gt-sm')"
+  md-whiteframe="4")
+    nav-el
+  
+  ng-transclude(flex)

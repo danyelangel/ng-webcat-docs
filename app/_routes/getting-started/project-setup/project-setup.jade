@@ -1,0 +1,37 @@
+section(
+layout="column"
+md-theme="bright")
+  md-toolbar(
+  md-whiteframe="1")
+    .md-toolbar-tools
+      h2
+        |Getting Started
+        md-icon|keyboard_arrow_right
+        |Project Setup
+
+  md-content.main(flex md-theme="bright")
+    md-content.card
+      h2.title|Introduction
+      p|To get started first install the ng-webcat library. 
+      ol
+        li
+          p|You can do this through the following bower command:
+          pre
+            |bower install --save ng-webcat
+        li
+          p|After you installed the ng-webcat library, import it in your Angular project by including it in your main module like this:
+          pre
+            |angular.module('app', ['ng-webcat']);
+        li
+          p|Now configure your app to work with your Firebase project. To do this call the init method on the $firedux service like so:
+          pre
+            |angular.module('app')
+            |   .run(function ($firedux) {
+            |     $firedux.init({
+            |       apiKey: 'YOUR_API_KEY',
+            |       authDomain: 'YOUR_AUTH_DOMAIN',
+            |       databaseURL: 'YOUR_DATABASE_URL',
+            |       storageBucket: 'YOUR_STORAGE_BUCKET'
+            |     });
+            |   });
+          

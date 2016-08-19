@@ -1,0 +1,38 @@
+.nav-wrapper(
+layout="column")
+  .header(md-whiteframe="2")
+    .title-wrapper(
+    layout="column"
+    layout-align="center center")
+      img.logo(src="images/logo-white.png")
+      .title
+        |Ng-Web
+        b|cat
+  
+  md-content.content(
+  flex
+  layout="column")
+    md-list.menu
+      md-list-item.menu-title|Documentation
+      md-divider
+      
+      div(
+      ng-repeat="section in $ctrl.$sitemap")
+        md-list-item.heading(
+        ng-click="$ctrl.isExpanded[$index]=!$ctrl.isExpanded[$index]")
+          |{{section.title}}
+          md-icon.md-secondary|{{$ctrl.isExpanded[$index] ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+        wc-collapse(
+        is-collapsed="!$ctrl.isExpanded[$index]"
+        vertical-only="true")
+          md-list-item.page(
+          ng-click="$ctrl.route('page', {section: section.route, page: page.route})"
+          ng-repeat="page in section.children")
+            |{{page.title}}
+            
+      md-divider
+    div(flex)
+    .menu-footer(
+    layout="row"
+    layout-align="center center")
+      |&copy; Daniel Ángel 2016
